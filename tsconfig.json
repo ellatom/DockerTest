@@ -1,7 +1,7 @@
 
 {
   "compilerOptions": {
-    "baseUrl": "https://www.imdb.com/",
+    "baseUrl": "https://example.cypress.io/",
     "target": "ES2017",
     "lib": ["ES2017", "DOM"],
     "types": ["cypress","node"]
