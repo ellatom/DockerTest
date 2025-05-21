@@ -1,0 +1,10 @@
+
+{
+  "compilerOptions": {
+    "baseUrl": "https://www.imdb.com/",
+    "target": "ES2017",
+    "lib": ["ES2017", "DOM"],
+    "types": ["cypress","node"]
+  },
+  "include": ["cypress/**/*.ts"]
+}

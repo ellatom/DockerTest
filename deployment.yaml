@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cypress-tests
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cypress
+  template:
+    metadata:
+      labels:
+        app: cypress
+    spec:
+      containers:
+      - name: cypress
+        image: 27081984/my-cypress-tests:latest
+        command: ["npx", "cypress", "run"]
+        ports:
+        - containerPort: 80
+        imagePullPolicy: Never

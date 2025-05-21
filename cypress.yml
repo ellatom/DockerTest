@@ -1,0 +1,21 @@
+name: Run Cypress Tests in Docker
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  cypress-docker:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Build Docker image
+        run: docker build -t my-cypress-tests .
+
+      - name: Run Cypress tests in Docker
+        run: docker run --rm my-cypress-tests
