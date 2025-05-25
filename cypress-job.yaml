@@ -1,0 +1,16 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: my-cypress-tests
+spec:
+  backoffLimit: 0 # dont rerun after failure
+  template:
+    spec:
+      containers:
+        - name: cypress
+          image: 27081984/my-cypress-tests:latest
+          command: ["npx", "cypress", "run"]
+          ports:
+          - containerPort: 80
+          imagePullPolicy: Always
+      restartPolicy: Never
