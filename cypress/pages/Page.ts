@@ -36,8 +36,7 @@ export class Page {
         element
             .click()
             .clear()
-            .type(text)
-            .type("{enter}");
+            .type(text);
         return this;
     }
 

@@ -12,9 +12,9 @@ class ResultInfoPage extends Page {
             .filter(':visible');
     }
 
-    get firstStarName(){
-        return cy.get('[href="/name/nm0000008/?ref_=tt_ov_st_1"]')
-            .filter(':visible');
+    get firstStarName() {
+        // Selects the first visible star link in the cast list, regardless of nm number
+        return cy.get('a[href^="/name/nm"][href*="?ref_=tt_ov_st_1"]').filter(':visible').first();
     }
 }
 

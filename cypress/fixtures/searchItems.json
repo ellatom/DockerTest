@@ -6,12 +6,12 @@
   },
   {
     "name": "Pulp Fiction",
-    "ratingThreshold": 9,
-    "firstStar": "Marlon Brando"
+    "ratingThreshold": 8,
+    "firstStar": "John Travolta"
   },
   {
     "name": "Inception",
-    "ratingThreshold": 9,
-    "firstStar": "Marlon Brando"
+    "ratingThreshold": 8,
+    "firstStar": "Leonardo DiCaprio"
   }
 ]

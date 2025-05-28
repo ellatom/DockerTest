@@ -8,7 +8,7 @@ class HomePage extends Page {
     }
 
     get searchBarMenuList() {
-        return cy.get('div#react-autowhatever-navSuggestionSearch');
+        return cy.get('.react-autosuggest__suggestions-list');
     }
 
     get menuResults() {
@@ -18,14 +18,13 @@ class HomePage extends Page {
     //Actoins
     clickFirstItemFromMenuListElement() {
         this.menuResults
-            .should('have.length.greaterThan', 0)
             .first()
             .click();
         return this;
     }
 
-    // In HomePage.ts
     searchForFilm(filmName: string) {
+        // In HomePage.ts
         this.searchBar.waitMedium();
         this.searchText(this.searchBar, filmName);
         return this;

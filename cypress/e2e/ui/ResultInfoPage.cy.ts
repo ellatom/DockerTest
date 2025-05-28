@@ -22,15 +22,16 @@ describe('Result info page Tests', () => {
       // Act
       HomePage.searchBar.waitMedium();
       HomePage.showSearchMenuForSearchText(HomePage.searchBar, item.name);
-      HomePage.searchBarMenuList.waitLong();
+      HomePage.searchBarMenuList.waitMedium();
+      HomePage.menuResults.should('have.length.greaterThan', 0);
       HomePage.clickFirstItemFromMenuListElement();
 
       // Assert
       ResultInfoPage.infoTitle.waitMedium().should('contain.text', item.name.toString());
       ResultInfoPage.infoRate.waitMedium().invoke('text')
         .then(text => parseFloat(text))
-        .should('be.greaterThan', 9);
-      ResultInfoPage.firstStarName.waitMedium().should('contain.text', "Marlon Brando");
+        .should('be.greaterThan', item.ratingThreshold);
+      ResultInfoPage.firstStarName.waitMedium().should('contain.text', item.firstStar);
     });
   });
 });
