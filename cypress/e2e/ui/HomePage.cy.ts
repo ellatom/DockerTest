@@ -1,27 +1,37 @@
 import HomePage from "../../pages/HomePage";
 import ResultsPage from "../../pages/ResultsPage";
-import { SearchItems } from "../../types/searchItems";
+import { SearchItem } from "../../types/searchItems";
+import { FILM_NAMES } from "../../fixtures/filmNames";
+import { findItemByName } from "../../support/apiHelpers";
 
 describe('Home page Tests', () => {
-  let items: SearchItems;
+  let items: SearchItem[];
 
-  beforeEach(function () {
+  before(function () {
     cy.visit("/");
-    return cy.fixture("searchItems").then((data) => {
-      items = data as SearchItems;
+    return cy.fixture<SearchItem[]>("searchItems").then((data) => {
+      items = data;
     });
   });
 
-  it('Debug test version', function () {
-    cy.log('Running test version 2025-05-20');
+  beforeEach(function () {
+    cy.visit("/");
   });
 
-  it('Results should be displayed after film Search', function () {
-      HomePage.searchBar.waitMedium();
-      HomePage.searchText(HomePage.searchBar, items.godfather);
-      ResultsPage.urlContainsText(items.godfather);
-      ResultsPage.headerText.waitMedium;
-      ResultsPage.headerText.should('contain.text', items.godfather.toString().toLowerCase());
+  FILM_NAMES.forEach(filmName => {
+    it(`Results should be displayed after searching for film: ${filmName}`, function () {
+      // Arrange
+      const item = findItemByName(items, filmName);
+
+      // Act
+      HomePage.searchForFilm(item.name);
+
+      // Assert
+      ResultsPage.urlContainsText(filmName);
+      ResultsPage.headerText
+        .waitMedium()
+        .should('contain.text', filmName.toLowerCase());
       ResultsPage.resultsList.should('have.length.gte', 0);
-  })
+    });
+  });
 });

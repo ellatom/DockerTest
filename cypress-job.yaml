@@ -1,8 +1,9 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: my-cypress-tests
+  name: my-cypress-tests-v2
 spec:
+  ttlSecondsAfterFinished: 300
   backoffLimit: 0 # dont rerun after failure
   template:
     spec:

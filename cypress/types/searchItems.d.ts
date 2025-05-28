@@ -1,4 +1,5 @@
-export interface SearchItems {
-  godfather?: string;
-  matrix?: string;
+export interface SearchItem {
+  name: string;
+  ratingThreshold: number;
+  firstStar: string;
 }

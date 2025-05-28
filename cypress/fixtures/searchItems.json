@@ -1,4 +1,17 @@
-{
-  "godfather": "The Godfather",
-  "matrix": "The Matrix"
-}
+[
+  {
+    "name": "The Godfather",
+    "ratingThreshold": 9,
+    "firstStar": "Marlon Brando"
+  },
+  {
+    "name": "Pulp Fiction",
+    "ratingThreshold": 9,
+    "firstStar": "Marlon Brando"
+  },
+  {
+    "name": "Inception",
+    "ratingThreshold": 9,
+    "firstStar": "Marlon Brando"
+  }
+]

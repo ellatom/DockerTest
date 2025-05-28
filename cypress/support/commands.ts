@@ -1,4 +1,4 @@
-// Custom Cypress commands
+// Custom Cypress commands to find elements not fetched from DB
 
 const TIMEOUTS = {
   short: 5000,
