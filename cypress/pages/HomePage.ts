@@ -23,11 +23,19 @@ class HomePage extends Page {
         return this;
     }
 
-    searchForFilm(filmName: string) {
+    searchForFilmByEnter(filmName: string) {
         // In HomePage.ts
         this.searchBar.waitMedium();
         this.searchText(this.searchBar, filmName);
         return this;
+    }
+
+    searchForFilmByMenu(name: string) {
+        this.searchBar.waitMedium();
+        this.showSearchMenuForSearchText(this.searchBar, name);
+        this.searchBarMenuList.waitMedium();
+        this.menuResults.should('have.length.greaterThan', 0);
+        this.clickFirstItemFromMenuListElement();
     }
 }
 

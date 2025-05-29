@@ -24,7 +24,7 @@ describe('Home page Tests', () => {
       const item = findItemByName(items, filmName);
 
       // Act
-      HomePage.searchForFilm(item.name);
+      HomePage.searchForFilmByEnter(item.name);
 
       // Assert
       ResultsPage.urlContainsText(filmName);

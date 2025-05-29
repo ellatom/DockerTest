@@ -20,18 +20,20 @@ describe('Result info page Tests', () => {
       const item = findItemByName(items, itemName);
 
       // Act
-      HomePage.searchBar.waitMedium();
-      HomePage.showSearchMenuForSearchText(HomePage.searchBar, item.name);
-      HomePage.searchBarMenuList.waitMedium();
-      HomePage.menuResults.should('have.length.greaterThan', 0);
-      HomePage.clickFirstItemFromMenuListElement();
+      HomePage.searchForFilmByMenu(item.name);
 
       // Assert
-      ResultInfoPage.infoTitle.waitMedium().should('contain.text', item.name.toString());
-      ResultInfoPage.infoRate.waitMedium().invoke('text')
+      ResultInfoPage.infoTitle
+        .waitMedium()
+        .should('contain.text', item.name);
+      ResultInfoPage.infoRate
+        .waitMedium()
+        .invoke('text')
         .then(text => parseFloat(text))
         .should('be.greaterThan', item.ratingThreshold);
-      ResultInfoPage.firstStarName.waitMedium().should('contain.text', item.firstStar);
+      ResultInfoPage.firstStarName
+        .waitMedium()
+        .should('contain.text', item.firstStar);
     });
   });
 });
